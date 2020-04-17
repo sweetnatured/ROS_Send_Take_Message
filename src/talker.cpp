@@ -8,29 +8,29 @@
 int main(int argc, char **argv)
 {
 	
- ros::init(argc, argv , "talker");
- ros::NodeHandle n;
+  ros::init(argc, argv , "talker");
+  ros::NodeHandle n;
 
 
- ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter",1000);
- ros::Rate loop_rate(10);
+  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter",1000);
+  ros::Rate loop_rate(10);
  
 
 
- std_msgs::String msg;
+  std_msgs::String msg;
 
- std::stringstream ss;
+  std::stringstream ss;
 
- ss << "selam" ;
+  ss << "selam" ;
 
- msg.data=ss.str();
+  msg.data=ss.str();
 
- ROS_INFO("%s", msg.data.c_str());
+  ROS_INFO("%s", msg.data.c_str());
+ 
+  chatter_pub.publish(msg);
 
- chatter_pub.publish(msg);
+
+return 0;
 
 
- return 0;
-
-s
 }
